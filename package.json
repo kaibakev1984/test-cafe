@@ -5,7 +5,9 @@
     "main": "index.js",
     "scripts": {
         "test": "testcafe chrome src/test/users.ts",
-        "test-cfg": "testcafe --config-file ./config/.testcaferc.json"
+        "test-cfg": "testcafe --config-file ./config/.testcaferc.json",
+        "test-at": "testcafe chrome src/test/automationpractice.ts",
+        "test-all": "testcafe chrome src/test/*.ts"
     },
     "author": "",
     "license": "ISC",
