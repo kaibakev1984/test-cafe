@@ -1,4 +1,3 @@
-import { Selector } from "testcafe";
 import LoginPage from '../pages/login.page';
 import SecurePage from '../pages/secure.page';
 
@@ -34,7 +33,7 @@ test('As a user, I can get error flash alert - pom', async t => {
         .expect(LoginPage.errorFlashAlert.innerText).contains('Your username is invalid!');
 });
 
-dataSet.forEach(data => {
+dataSet.forEach((data: any) => {
     test(`As '${data.username}', I can log into the secure area - using data file`, async t => {
         await t
             .expect(LoginPage.inputUsername.value).eql('', 'Username is empty')
