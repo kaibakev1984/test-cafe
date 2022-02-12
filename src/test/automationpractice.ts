@@ -4,7 +4,13 @@ import LoginPage from '../pages/automationpractice/login.page';
 import RegisterPage from '../pages/automationpractice/register.page';
 
 fixture `Automation Practice`
-    .page `http://automationpractice.com/index.php`;
+    .page `http://automationpractice.com/index.php`
+    .beforeEach(
+        async t => {
+            await t 
+                .maximizeWindow();
+        }
+    );
 
 test('Go to sign in page and get register account error', async t => {
     await t 
@@ -29,4 +35,21 @@ test('Go to sign in page and get autentication error', async t => {
         .typeText(LoginPage.inputPassword, 'password123')
         .click(LoginPage.btnSubmitLogin)
         .expect(LoginPage.alertLoginError.innerText).contains('Authentication failed.')
+});
+
+test('Search clothe and get error message', async t => {
+    await t
+        .typeText('#search_query_top', 'clothe')
+        .click('button[type="submit"]')
+        .expect(Selector('h1[class="page-heading  product-listing"]').innerText).contains('SEARCH')
+        .expect(Selector('span[class="heading-counter"]').innerText).contains('0 results have been found.')
+});
+
+test('Search printed and get results', async t => {
+    await t
+        .typeText('#search_query_top', 'printed')
+        .click('button[type="submit"]')
+        .expect(Selector('h1[class="page-heading  product-listing"]').innerText).contains('SEARCH')
+        .expect(Selector('span[class="lighter"]').innerText).contains('PRINTED')
+        .expect(Selector('span[class="heading-counter"]').innerText).contains('5 results have been found.')
 });
