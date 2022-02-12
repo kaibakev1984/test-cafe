@@ -1,0 +1,15 @@
+{
+    "name": "starter-test-cafe",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "testcafe chrome src/test/users.ts",
+        "test-cfg": "testcafe --config-file ./config/.testcaferc.json"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "testcafe": "^1.18.3"
+    }
+}

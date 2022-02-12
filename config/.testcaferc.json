@@ -1,0 +1,15 @@
+{
+    "browsers": ["chrome", "firefox"],
+    "src": "src/test/users.ts",
+    "reporter": [{
+            "name": "spec"
+        },
+        {
+            "name": "xunit",
+            "output": "results/test-results.xml"
+        }
+    ],
+    "screenshots": {
+        "takeOnFails": true
+    }
+}
